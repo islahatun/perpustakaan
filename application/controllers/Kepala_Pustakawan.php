@@ -19,7 +19,7 @@ class Kepala_Pustakawan extends CI_Controller
     public function list_pustakawan()
     {
         $data['list'] = $this->Model_pustakawan->list_pustakawan();
-
+        $data['id'] = $this->Model_pustakawan->get_id();
         $this->load->view('Templates/header');
         $this->load->view('Templates/topbar');
         $this->load->view('Templates/sidebar');
@@ -31,9 +31,16 @@ class Kepala_Pustakawan extends CI_Controller
         $this->Model_pustakawan->insert_pustakawan();
         redirect('Kepala_Pustakawan/list_pustakawan');
     }
+    public function ubah()
+    {
+
+        $this->Model_pustakawan->update_pustakawan();
+        redirect('Kepala_Pustakawan/list_pustakawan');
+    }
     public function hapus($id_pustakawan)
     {
         $this->Model_pustakawan->delete_pustakawan($id_pustakawan);
+
         redirect('Kepala_Pustakawan/list_pustakawan');
     }
 }
