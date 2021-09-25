@@ -21,6 +21,11 @@ class Kepala_Pustakawan extends CI_Controller
     {
         $data['list'] = $this->Model_pustakawan->list_pustakawan(1, 0);
         $data['id'] = $this->Model_pustakawan->get_id();
+
+        $config['base_url'] = 'http://localhost:8080/perpustakaan/Kepala_Pustakawan/list_pustakawan';
+        $config['total_rows'] = 200;
+        $config['per_page'] = 5;
+
         $this->load->view('Templates/header');
         $this->load->view('Templates/topbar');
         $this->load->view('Templates/sidebar');
