@@ -10,6 +10,7 @@ class Kepala_Pustakawan extends CI_Controller
     }
     public function index()
     {
+
         $this->load->view('Templates/header');
         $this->load->view('Templates/topbar');
         $this->load->view('Templates/sidebar');
@@ -18,7 +19,7 @@ class Kepala_Pustakawan extends CI_Controller
     }
     public function list_pustakawan()
     {
-        $data['list'] = $this->Model_pustakawan->list_pustakawan();
+        $data['list'] = $this->Model_pustakawan->list_pustakawan(1, 0);
         $data['id'] = $this->Model_pustakawan->get_id();
         $this->load->view('Templates/header');
         $this->load->view('Templates/topbar');

@@ -4,9 +4,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Model_pustakawan extends CI_Model
 {
 
-    public function list_pustakawan()
+    public function list_pustakawan($limit, $start)
     {
-        return $this->db->get('m_pustakawan')->result_array();
+        return $this->db->get('m_pustakawan', $limit, $start)->result_array();
     }
     public function get_id()
     {
