@@ -19,12 +19,19 @@ class Kepala_Pustakawan extends CI_Controller
     }
     public function list_pustakawan()
     {
-        $data['list'] = $this->Model_pustakawan->list_pustakawan(1, 0);
+        //config pagination
+        $config['base_url'] = 'http://localhost:8080/perpustakaan/Kepala_Pustakawan/list_pustakawan';
+        $config['total_rows'] = $this->Model_pustakawan->count_pustakawan();
+        $config['per_page'] = 1;
+
+        //initialize
+        $this->pagination->initialize($config);
+
+        //menentukan halaman yang akan dimulai
+        $data['start'] = $this->uri->segment(3);
+        $data['list'] = $this->Model_pustakawan->list_pustakawan($config['per_page'], $data['start']);
         $data['id'] = $this->Model_pustakawan->get_id();
 
-        $config['base_url'] = 'http://localhost:8080/perpustakaan/Kepala_Pustakawan/list_pustakawan';
-        $config['total_rows'] = 200;
-        $config['per_page'] = 5;
 
         $this->load->view('Templates/header');
         $this->load->view('Templates/topbar');

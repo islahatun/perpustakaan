@@ -18,9 +18,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <?php $i = 1; ?>
                         <?php foreach ($list as $l) : ?>
-                            <th scope="row" class="text-center"><?= $i; ?></th>
+                            <th scope="row" class="text-center"><?= ++$start; ?></th>
                             <td><?= $l['id_pustakawan'] ?></td>
                             <td><?= $l['nama_pustakawan'] ?></td>
                             <td><?= $l['level'] ?></td>
@@ -31,9 +30,10 @@
                             </td>
                     </tr>
                 </tbody>
-                <?php $i++ ?>
             <?php endforeach ?>
             </table>
+
+            <?= $this->pagination->create_links(); ?>
         </div>
     </main>
 

@@ -8,6 +8,10 @@ class Model_pustakawan extends CI_Model
     {
         return $this->db->get('m_pustakawan', $limit, $start)->result_array();
     }
+    public function count_pustakawan()
+    {
+        return $this->db->get('m_pustakawan')->num_rows();
+    }
     public function get_id()
     {
         $id = "SELECT id_pustakawan FROM m_pustakawan ORDER BY  id_pustakawan DESC ";
